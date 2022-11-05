@@ -1,0 +1,119 @@
+<section class="h-100 gradient-custom-2">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-lg-12 col-xl-12">
+                <div class="card">
+                    <div class="rounded-top text-white d-flex flex-row" style="background-color: rgb(54, 84, 111); height:200px;">
+                        <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
+                            <img src="https://grabbble.com/storage/app/public/profile/default.png"
+                                alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
+                                style="width: 150px; z-index: 1">
+                            <button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark"
+                                style="z-index: 1;" (click)="openModal()">
+                                Edit profile
+                            </button>
+                        </div>
+                        <div class="ms-3" style="margin-top: 130px;">
+                            <h6>
+                            {{ loggedinUser.firstname }}
+                            </h6>
+                        </div>
+
+                    </div>
+                    <br />
+                    <br />
+                    <div class="card-body p-4 text-black">
+                        <div class="mb-5">
+                            <p class="lead fw-normal mb-1">Profile Detail</p>
+                            <div class="p-4" style="background-color: #f8f9fa;">
+                                <div class="row">
+                                    <div class="container">
+                                        <div class="col-md-6">
+                                            <strong>Email : </strong>
+                                            <p class="font-italic mb-1">{{ loggedinUser.email }}</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <strong>Phone : </strong>
+                                            <p class="font-italic mb-1">{{ loggedinUser.mobile}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="container">
+                                        <div class="col-md-6">
+                                            <strong>Address line1 : </strong>
+                                            <p class="font-italic mb-1">{{ loggedinUser.addline1 }}</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <strong>Address line 2 </strong>
+                                            <p class="font-italic mb-1">{{ loggedinUser.addline2 }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modal Popup -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Profile</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form #updateForm="ngForm">
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">First Name:</label>
+                  <input type="text" class="form-control" name="firstname" required
+                  [(ngModel)]="user.firstname" >
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label" >Last Name:</label>
+                  <input type="text" class="form-control" name="lastname" required
+                  [(ngModel)]="user.lastname">
+                </div>
+                <div class="form-group">
+                    <label for="message-text" class="col-form-label" >Mobile</label>
+                    <input type="text" class="form-control" name="mobile" required
+                    [(ngModel)]="user.mobile">
+                  </div>
+                  <div class="form-group">
+                    <label for="message-text" class="col-form-label" >Address Line1</label>
+                    <input type="text" class="form-control" name="addline1" required
+                    [(ngModel)]="user.addline1">
+                  </div>
+                  <div class="form-group">
+                    <label for="message-text" class="col-form-label" >Address Line 2</label>
+                    <input type="text" class="form-control" name="addline2" required
+                    [(ngModel)]="user.addline2">
+                  </div>
+                  <div class="form-group">
+                    <label for="message-text" class="col-form-label" >City</label>
+                    <input type="text" class="form-control" name="city" required
+                    [(ngModel)]="user.city">
+                  </div>
+                  <div class="form-group">
+                    <label for="message-text" class="col-form-label" >Email</label>
+                    <input type="email" class="form-control" name="email" readonly
+                    [(ngModel)]="user.email">
+                  </div>
+                  <br/>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" data-dismiss="modal" (click)="closeModal()">Close</button>
+          <button type="button" class="btn btn-outline-dark" (click)="updateUser(updateForm.value)">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

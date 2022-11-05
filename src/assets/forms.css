@@ -1,0 +1,9 @@
+.ng-invalid.ng-touched{
+    border-color: red;
+}
+.error-block{
+    color: red;
+}
+/* .ng-tns-0-0{
+    background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKrvsm3c5095u4OuaDFyT6cXSEHqXcyos5IA&usqp=CAU');
+} */

@@ -1,0 +1,93 @@
+<div class="card m-auto">
+    <div class="card-header">
+        Register
+    </div>
+    <div class="card-body">
+        <form [formGroup]="reactiveform" (ngSubmit)="SaveUser()">
+            <div class="form-group col-12">
+                <label for="firstname" class="form-label">First Name</label>
+                <input type="text" class="form-control" formControlName="firstname">
+                <span *ngIf="!firstname.valid && (firstname.touched || userSubmitted)" class="error-block">
+                    Please provide valid firstname
+                </span>
+            </div>
+            <div class="form-group col-12">
+                <label for="lastname" class="form-label">Last Name</label>
+                <input type="text" class="form-control" formControlName="lastname">
+                <span *ngIf="!lastname.valid && (lastname.touched  || userSubmitted)" class="error-block">
+                    Please provide valid lastname
+                </span>
+            </div>
+            <div class="form-group col-12">
+                <label for="addline1" class="form-label">Address Line 1</label>
+                <input type="text" class="form-control" formControlName="addline1">
+                <span *ngIf="!addline1.valid && (addline1.touched  || userSubmitted)" class="error-block">
+                    Please provide valid addline1
+                </span>
+            </div>
+            <div class="form-group col-12">
+                <label for="addline2" class="form-label">Address Line 2</label>
+                <input type="text" class="form-control" formControlName="addline2">
+            </div>
+            <div class="form-group col-12">
+                <label for="state" class="form-label">State</label>
+                <select  class="form-select" formControlName="state" (change)="onSelect($event)">
+                    <option *ngFor="let states of state" value="{{states.id}}">{{states.name}}</option>
+                </select>
+                <span *ngIf="!state.valid && (state.touched  || userSubmitted)" class="error-block">
+                    Please provide valid state
+                </span>
+            </div>
+            <div class="form-group col-12">
+                <label for="city" class="form-label">City</label>
+                <select  class="form-select" formControlName="city">
+                    <option *ngFor="let cities of city">{{cities.name}}</option>
+                </select>
+                <span *ngIf="!city.valid && (city.touched || userSubmitted)" class="error-block">
+                    Please provide valid city
+                </span>
+            </div>
+            <div class="form-group col-12">
+                <label for="mobile" class="form-label">Mobile</label>
+                <input type="text" class="form-control" formControlName="mobile">
+                <span *ngIf="!mobile.valid && (mobile.touched || userSubmitted)" class="error-block">
+                    <span *ngIf="mobile?.errors?.['required']">
+                        Please provide mobile no.
+                    </span>
+                    <span *ngIf="mobile?.errors?.['maxlength']">
+                        Mobile Number Should be of 10 Digit
+                    </span>
+                </span>
+            </div>
+            <div class="form-group col-12">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" formControlName="email">
+                <span *ngIf="!email.valid && (email.touched || userSubmitted)" class="error-block">
+                    <span *ngIf="email.hasError('required')">
+                        Please provide email id
+                    </span>
+                    <span *ngIf="email.hasError('email')">
+                        Please provide valid email id
+                    </span>
+                </span>
+            </div>
+            <div class="form-group col-12">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" formControlName="password">
+                <span *ngIf="!password.valid &&( password.touched || userSubmitted)" class="error-block">
+                    <span *ngIf="password?.errors?.['required']">
+                        Please provide password
+                    </span>
+                    <span *ngIf="password?.errors?.['minlength']">
+                        Password should not be lesser than 8 character
+                    </span>
+                </span>
+            </div>
+            <br />
+            <div class="form-group col-12">
+                <button type="submit" class="btn btn-primary">Save</button>&nbsp;
+                <button type="reset" class="btn btn-warning ml-2">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
