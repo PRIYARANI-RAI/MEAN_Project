@@ -12,20 +12,6 @@ const config = {
             PASSWORD: ""
         },
         PORTNO:8201,
-    },
-        staging: {
-            DB: {
-                HOST: "172.10.1.3",
-                PORT: 27017,
-                DATABASE: "priyaranirai",
-                MOONGOOSE: {
-                    useUnifiedTopology: true,
-                    useNewUrlParser: true,
-                },
-                USERNAME: "priyaranirai",
-                PASSWORD: "priyaranirai56"
-            },
-            PORTNO:8201
     }
 }
 export const get = function get(env){

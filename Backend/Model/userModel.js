@@ -2,34 +2,40 @@ import mongoose from "mongoose";
 
 const usersSchema = mongoose.Schema({
     firstname: {
-        type: String
+        type: String,
+        required: true
     },
     lastname: {
-        type: String
-    },
-    fullname: {
-        type: String
+        type: String,
+        required: true
     },
     addline1:{
-        type:String
+        type:String,
+        required:true
     },
     addline2:{
-        type:String
+        type:String,
+        required:false
     },
     city:{
-        type:String
+        type:String,
+        required:false
     },  
     state:{
-        type:String
+        type:String,
+        required:false
     },
     mobile: {
-        type: Number
+        type: Number,
+        required:false
     },
     email: {
-        type: String
+        type: String,
+        required:true
     },
     password: {
-        type: String
+        type: String,
+        required:true
     },
     status: {
         type: String,
